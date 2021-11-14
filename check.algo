@@ -1,0 +1,42 @@
+PROCEDURE inssort(var arr:tab,n:INTEGER)
+VAR
+    i,x,j:INTEGER
+BEGIN
+FOR i FROM 1 TO n-1 DO
+x:=arr[i]
+j:=i-1;
+WHILE (j>=0 and arr[j]>x) DO
+    arr[j+1]=arr[j]
+    j:=j-1;
+END_WHILE
+    arr[j+1]:=x
+END_FOR
+END
+PROCEDURE printarr(arr:tab,n:INTEGER)
+VAR
+i:INTEGER
+BEGIN
+FOR i FROM 0 TO n DO
+write(arr[i]," ")
+END_FOR
+END
+
+PROCEDURE givearr(var arr:tab,n:INTEGER)
+VAR
+    i:INTEGER
+BEGIN
+  FOR i FROM 1 TO n  DO
+write("give value n",i," : ")
+  END_FOR
+END
+ALGORITHM find
+VAR
+   tab: ARRAY_OF type[INTEGER];
+   n:INTEGER
+BEGIN
+write("give length: ")
+read(n)
+inssort(arr,n)
+givearr(arr,n)
+printarr(arr,n)
+END
